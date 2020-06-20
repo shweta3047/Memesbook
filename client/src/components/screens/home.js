@@ -100,26 +100,22 @@ const deletePost=(postId)=>{
   }).catch(err=>console.log(err))
 }
 
-// const deleteComment=(postId,commentId)=>{
-//   fetch(`/deleteComment/${postId}/${commentId}`,{
-//     method:"DELETE",
-//     headers:{"Authorization":"Bearer "+localStorage.getItem("jwt")}
-//   }).then(res=>res.json())
-//   .then(result=>{
-//     console.log(result)
-//       const newPosts= posts.map((post)=>{
-//          if(post._id===postId){
-//             const newData=post.comments.filter(item=>{
-//              return item._id!==result._id;
-//            })
-//               const newPost= {...post,comments:newData};
-//              return post=newPost;
-//          }
-//          else return post;
-//        })
-//        setPosts(newPosts);
-//   }).catch(err=>console.log(err))
-// }
+const deleteComment=(postId,commentId)=>{
+  fetch(`/deleteComment/${postId}/${commentId}`,{
+    method:"DELETE",
+    headers:{"Authorization":"Bearer "+localStorage.getItem("jwt")}
+  }).then(res=>res.json())
+  .then(result=>{
+      const newPosts= posts.map((post)=>{
+         if(post._id===postId){
+            return result;}
+            else{
+              return post;
+            }
+           })
+       setPosts(newPosts);
+  }).catch(err=>console.log(err))
+}
 
   return (
     <div>
@@ -164,7 +160,7 @@ const deletePost=(postId)=>{
                     <div key={comment._id} className="commentDiv">
                       <span style={{fontWeight:"800"}}>{comment.postedBy.name}: </span>{comment.text}
                       {comment.postedBy._id===state._id &&
-                    <DeleteOutlineIcon className="deleteCommentIcon"  />
+                    <DeleteOutlineIcon className="deleteCommentIcon"  onClick={()=>deleteComment(post._id,comment._id)} />
                       }
                     </div>
                     )

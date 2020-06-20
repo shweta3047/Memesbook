@@ -109,28 +109,19 @@ router.delete("/deletePost/:postId",requireLogin,(req,res)=>{
     })
 })
 
-// router.delete("/deleteComment/:postId/:commentId",requireLogin,(req,res)=>{
-//     Post.findOne({_id:req.params.postId})
-//     .populate("postedBy","_id").populate("comments.postedBy","_id")
-//     .exec((err,post)=>{
-//         if(err || !post){
-//             res.status(422).json({error:err})
-//         }
-//         else{
-//             const comment=post.comments.filter(comment=>{
-//                 return comment._id.toString()===req.params.commentId
-//             })
-//                 if(comment){
-//                     if(comment.postedBy._id.toString()===req.user._id.toString()){
-//                         comment.remove()
-//                         .then(result=>{
-//                             console.log(result)
-//                             res.json(result)})
-//                         .catch(err=>console.log(err))
-//                     }
-//                 }
-//         }
-//     })
-// })
+router.delete("/deleteComment/:postId/:commentId",requireLogin,(req,res)=>{
+
+    Post.findByIdAndUpdate(req.params.postId,{$pull:{comments:{_id:req.params.commentId}}},{new:true})
+    .populate("postedBy","_id name dp")
+    .populate("comments.postedBy","_id name")
+    .exec((err,post)=>{
+        if(err || !post){
+            res.status(422).json({error:err})
+        }
+        else{
+            res.json(post)
+        }
+    })
+})
 
 module.exports=router;

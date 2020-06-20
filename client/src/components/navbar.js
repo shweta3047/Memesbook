@@ -1,6 +1,6 @@
 import React,{useContext} from "react";
 import { Link } from "react-router-dom";
-import InstagramIcon from "@material-ui/icons/Instagram";
+import ToysIcon from '@material-ui/icons/Toys';
 import {UserContext} from '../App';
 
 const Navbar = () => {
@@ -48,9 +48,9 @@ const Navbar = () => {
           <div className="left item">
             <Link to={state?"/home":"/login"} className="brand">
               <span className="logo">
-                <InstagramIcon className="icon" />
+                <ToysIcon className="icon" />
               </span>
-              <span className="brandName">Instagram</span>
+              <span className="brandName">Memesbook</span>
             </Link>
           </div>
           <div className="right item">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link,useHistory } from "react-router-dom";
-import InstagramIcon from "@material-ui/icons/Instagram";
+import ToysIcon from '@material-ui/icons/Toys';
 
 const Signup = () => {
 
@@ -30,9 +30,9 @@ const Signup = () => {
     <div className="card">
       <div className="brand">
         <div className="logo">
-          <InstagramIcon className="icon" />
+          <ToysIcon className="icon" />
         </div>
-        <div className="brandName">Instagram</div>
+        <div className="brandName">Memesbook</div>
       </div>
       <form>
         <input

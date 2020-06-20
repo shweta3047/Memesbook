@@ -1,6 +1,6 @@
 import React,{useState,useContext} from "react";
 import { Link,useHistory } from "react-router-dom";
-import InstagramIcon from "@material-ui/icons/Instagram";
+import ToysIcon from '@material-ui/icons/Toys';
 import {UserContext} from '../../App';
 
 const Login = () => {
@@ -21,7 +21,6 @@ const Login = () => {
       if(data.error)
       alert(data.error);
       else{
-        // alert("Succesfully Logged in");
         localStorage.setItem("jwt",data.token);
         localStorage.setItem("user",JSON.stringify(data.user))
         dispatch({type:'USER',payload:data.user})
@@ -33,9 +32,9 @@ const Login = () => {
     <div className="card">
       <div className="brand">
         <div className="logo">
-          <InstagramIcon className="icon" />
+          <ToysIcon className="icon" />
         </div>
-        <div className="brandName">Instagram</div>
+        <div className="brandName">Memesbook</div>
       </div>
       <form>
         <input type="email" name="email" placeholder="Enter your email" value={email} onChange={e=>setEmail(e.target.value)} />
