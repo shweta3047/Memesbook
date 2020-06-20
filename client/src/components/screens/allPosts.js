@@ -6,13 +6,13 @@ import {UserContext} from '../../App';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
 
-const Home = () => {
+const AllPosts = () => {
   const [posts,setPosts]=useState([]);
   const {state,disaptch}=useContext(UserContext);
   const [comment,setComment]=useState([]);
 
   useEffect(()=>{
-    fetch("/subscribedPost",{
+    fetch("/allPost",{
       headers:{"Authorization":"Bearer "+localStorage.getItem("jwt")}
     }).then(res=>res.json())
     .then(data=>{
@@ -188,4 +188,4 @@ const deletePost=(postId)=>{
   );
 };
 
-export default Home;
+export default AllPosts;

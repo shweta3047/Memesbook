@@ -13,6 +13,7 @@ import Profile from "./components/screens/profile";
 import CreatePost from "./components/screens/createPost";
 import UserProfile from "./components/screens/userProfile";
 import EditProfile from "./components/screens/editProfile";
+import AllPosts from "./components/screens/allPosts";
 import {initialState,reducer} from "./reducers/userReducer";
 
 export const UserContext=createContext();
@@ -53,6 +54,9 @@ const Routing=()=>{
         </Route>
         <Route path="/editProfile">
           <EditProfile />
+        </Route>
+        <Route path="/allPosts">
+          <AllPosts />
         </Route>
     </Switch>
     </>

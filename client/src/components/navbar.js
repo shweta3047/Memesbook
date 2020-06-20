@@ -9,6 +9,9 @@ const Navbar = () => {
     if(state){
       return [
       <>
+      <Link to="/allPosts">
+      <span className="profile">AllPosts </span>
+      </Link>
       <Link to="/profile">
       <span className="profile">Profile </span>
       </Link>

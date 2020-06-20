@@ -9,7 +9,7 @@ const UserProfile = () => {
 const {userId}=useParams();
 const {state,dispatch}=useContext(UserContext);
 const [profile,setProfile]=useState(null);
-const [followed,setFollowed]=useState(false);
+const [followed,setFollowed]=useState(state?state.following.includes(userId):false);
 
 useEffect(()=>{
   fetch(`/profile/${userId}`,{

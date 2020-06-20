@@ -4,8 +4,17 @@ const mongoose=require('mongoose')
 const requireLogin=require('../middleware/requireLogin')
 const Post=mongoose.model('Post');
 
-router.get('/allPost',requireLogin,(req,res)=>{
+router.get('/subscribedPost',requireLogin,(req,res)=>{
     Post.find({$or:[{postedBy:req.user._id},{postedBy:{$in:req.user.following}}]}).populate("postedBy","_id name dp").populate("comments.postedBy","_id name dp").populate("likes")
+    .then(post=>{
+        res.json({post})
+    }).catch(err=>{
+        console.log(err)
+    })
+})
+
+router.get('/allPost',requireLogin,(req,res)=>{
+    Post.find().populate("postedBy","_id name dp").populate("comments.postedBy","_id name dp").populate("likes")
     .then(post=>{
         res.json({post})
     }).catch(err=>{
