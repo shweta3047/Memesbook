@@ -16,6 +16,7 @@ import EditProfile from "./components/screens/editProfile";
 import AllPosts from "./components/screens/allPosts";
 import ForgetPassword from "./components/screens/forgetPassword";
 import ResetPassword from "./components/screens/resetPassword";
+import Search from "./components/screens/searchUsers";
 import {initialState,reducer} from "./reducers/userReducer";
 
 export const UserContext=createContext();
@@ -66,6 +67,9 @@ const Routing=()=>{
         </Route>
         <Route path="/allPosts">
           <AllPosts />
+        </Route>
+        <Route path="/searchUsers">
+          <Search />
         </Route>
     </Switch>
     </>

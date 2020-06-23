@@ -1,14 +1,23 @@
-import React,{useContext} from "react";
+import React,{useContext,useRef} from "react";
 import { Link } from "react-router-dom";
 import ToysIcon from '@material-ui/icons/Toys';
+import SearchIcon from '@material-ui/icons/Search';
+import HorizontalSplitOutlinedIcon from '@material-ui/icons/HorizontalSplitOutlined';
 import {UserContext} from '../App';
 
 const Navbar = () => {
+  const searchBar=useRef(null);
   const {state,dispatch}=useContext(UserContext);
+
   const renderNavs=()=>{
     if(state){
       return [
       <>
+        <Link key="8" className="search" to="/searchUsers">
+             <span className="profile">Search </span><span className="searchlogo">
+        <SearchIcon/>
+      </span>
+        </Link>
       <Link key="1" to="/allPosts">
       <span className="profile">AllPosts </span>
       </Link>

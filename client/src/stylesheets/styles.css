@@ -74,7 +74,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 90%;
-  max-width: 300px;
+  max-width: 400px;
   /* background: yellow; */
   margin: 7% auto;
   border: 1px solid black;
@@ -197,3 +197,38 @@ body {
   font-size: 2.8em;
   transform: rotate(360deg);
 }
+
+.search{
+  display:flex;
+  align-items: stretch;
+  justify-content: center;
+  margin:0px 50px; 
+}
+.search input{
+  border-radius: 34px 34px 34px 34px;
+-moz-border-radius: 34px 34px 34px 34px;
+-webkit-border-radius: 34px 34px 34px 34px;
+border: 1px solid #000000;
+  padding: 10px 35px;
+}
+.searchlogo{
+  margin:5px;
+  display: flex;
+  align-items: center;
+}
+
+.userLink{
+  display:flex;
+  align-items: center;
+  text-decoration: none;
+  color:black;
+}
+
+.userLink img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 5px 10px;
+}
+
+
