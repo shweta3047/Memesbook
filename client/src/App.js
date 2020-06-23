@@ -14,6 +14,8 @@ import CreatePost from "./components/screens/createPost";
 import UserProfile from "./components/screens/userProfile";
 import EditProfile from "./components/screens/editProfile";
 import AllPosts from "./components/screens/allPosts";
+import ForgetPassword from "./components/screens/forgetPassword";
+import ResetPassword from "./components/screens/resetPassword";
 import {initialState,reducer} from "./reducers/userReducer";
 
 export const UserContext=createContext();
@@ -27,6 +29,7 @@ const Routing=()=>{
       dispatch({type:"USER",payload:user})
     }
     else{
+      if(!history.location.pathname.startsWith("/resetPassword"))
       history.push("/login")
     }
   },[])
@@ -39,6 +42,12 @@ const Routing=()=>{
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/forgetPassword">
+          <ForgetPassword />
+        </Route>
+        <Route path="/resetPassword/:token">
+          <ResetPassword />
         </Route>
         <Route path="/signup">
           <Signup />

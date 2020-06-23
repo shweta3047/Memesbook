@@ -6,6 +6,7 @@ const Post=mongoose.model('Post');
 
 router.get('/subscribedPost',requireLogin,(req,res)=>{
     Post.find({$or:[{postedBy:req.user._id},{postedBy:{$in:req.user.following}}]}).populate("postedBy","_id name dp").populate("comments.postedBy","_id name dp").populate("likes")
+    .sort('-createdAt')
     .then(post=>{
         res.json({post})
     }).catch(err=>{
@@ -15,6 +16,7 @@ router.get('/subscribedPost',requireLogin,(req,res)=>{
 
 router.get('/allPost',requireLogin,(req,res)=>{
     Post.find().populate("postedBy","_id name dp").populate("comments.postedBy","_id name dp").populate("likes")
+    .sort('-createdAt')
     .then(post=>{
         res.json({post})
     }).catch(err=>{
@@ -24,6 +26,7 @@ router.get('/allPost',requireLogin,(req,res)=>{
 
 router.get('/myPost',requireLogin,(req,res)=>{
     Post.find({postedBy:req.user._id}).populate("postedBy","_id name dp")
+    .sort('-createdAt')
     .then(myPost=>{
         res.json({myPost})
     }).catch(err=>{

@@ -38,14 +38,14 @@ const Login = () => {
       </div>
       <form>
         <input type="email" name="email" placeholder="Enter your email" value={email} onChange={e=>setEmail(e.target.value)} />
-        <input type="password" name="email" placeholder="Enter your password" value={password} onChange={e=>setPassword(e.target.value)} />
+        <input type="password" name="password" placeholder="Enter your password" value={password} onChange={e=>setPassword(e.target.value)} />
         <input type="submit" value="Login" onClick={e=>{
           e.preventDefault();
           PostData();
         }} />
       </form>
       <div className="forgetPassword">
-        <Link to="/resetPassword">Forgot Password?</Link>
+        <Link to="/forgetPassword">Forgot Password?</Link>
       </div>
       <hr />
       <div className="sign">Not yet Registered?</div>

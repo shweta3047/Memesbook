@@ -9,16 +9,16 @@ const Navbar = () => {
     if(state){
       return [
       <>
-      <Link to="/allPosts">
+      <Link key="1" to="/allPosts">
       <span className="profile">AllPosts </span>
       </Link>
-      <Link to="/profile">
+      <Link key="2" to="/profile">
       <span className="profile">Profile </span>
       </Link>
-      <Link to="/createPost">
+      <Link key="3" to="/createPost">
         <span className="create">CreatePost </span>
       </Link>
-      <Link to="/login">
+      <Link key="4" to="/login">
         <span className="logout" onClick={()=>{
           localStorage.clear();
           dispatch({type:"CLEAR"})
@@ -30,10 +30,10 @@ const Navbar = () => {
     else{
       return [
       <>
-      <Link to="/login">
+      <Link key="5" to="/login">
           <span className="login">Login </span>
       </Link>
-       <Link to="/signup">
+       <Link key="6" to="/signup">
           <span className="signup">SignUp </span>
        </Link>
        </>
@@ -46,7 +46,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar">
           <div className="left item">
-            <Link to={state?"/home":"/login"} className="brand">
+            <Link key="7"to={state?"/home":"/login"} className="brand">
               <span className="logo">
                 <ToysIcon className="icon" />
               </span>

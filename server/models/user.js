@@ -17,6 +17,8 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    resetToken:String,
+    expireToken:Date,
     followers:[{type:ObjectID,ref:"User"}],
     following:[{type:ObjectID,ref:"User"}],
     dp:{
@@ -31,6 +33,6 @@ const userSchema=new mongoose.Schema({
         type:String,
         default:""
     }
-})
+},{timestamps:true})
 
 mongoose.model("User",userSchema);

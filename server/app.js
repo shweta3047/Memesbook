@@ -12,6 +12,8 @@ mongoose.connection.on('error',(err)=>{
     console.log('error in connecting to database ',err)
 })
 
+
+
 require('./models/user');
 require('./models/post')
 
