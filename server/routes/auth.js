@@ -5,6 +5,7 @@ const User=mongoose.model("User");
 const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken')
 const {JWT_SECRET}=require("../keys");
+const {MAIL_SECRET}=require("../keys");
 const requireLogin=require('../middleware/requireLogin');
 const nodemailer=require("nodemailer");
 const sendgridTransport=require("nodemailer-sendgrid-transport");
@@ -12,7 +13,7 @@ const crypto=require('crypto');
 
 const transporter=nodemailer.createTransport(sendgridTransport({
     auth:{
-        api_key:"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"
+        api_key:MAIL_SECRET
     }
 }))
 
